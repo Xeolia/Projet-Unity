@@ -6,15 +6,14 @@ public class ScriptBoule : MonoBehaviour
 {
     public Rigidbody maSphere;
     public float speed = 1000.0f;
-    Vector3 originalPos;
-
-
+    Vector3 originalPosSphere;
     public Rigidbody sphere;
     // Start is called before the first frame update
     void Start()
     {
         //sphere = GetComponent<Rigidbody>();
-        originalPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        originalPosSphere = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+
     }
 
     // Update is called once per frame
@@ -31,8 +30,12 @@ public class ScriptBoule : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) ) //on recupere etat shift pour reset à la position de départ l'objet
         {
            // Instantiate(maSphere, new Vector3(0, 1, 0), Quaternion.identity);
-            gameObject.transform.position = originalPos;
-            sphere.AddForce(Vector3.forward);
+           //reset à la place originale la boule
+
+            gameObject.transform.position = originalPosSphere;
+           // sphere.Equals(immobilized = false);
+            //sphere.AddForce(Vector3.forward);
+
             //Instantiate(maSphere, new Vector3(-0.29f, 1.15f, -5.83f), Quaternion.identity);
         }
 
